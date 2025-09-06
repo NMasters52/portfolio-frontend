@@ -1,8 +1,11 @@
-import { FaLaptopCode } from "react-icons/fa"
+import { useState } from "react";
 import { NavLink } from "react-router"
+import { FaLaptopCode, FaTimes, FaBars } from 'react-icons/fa';
 
 const Navbar = () => {
     
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const nonActiveLink = "transition hover:text-blue-400"
     const activeLink = "text-blue-400 font-semibold"
 
@@ -27,6 +30,18 @@ const Navbar = () => {
                 <div className="space-x-4 text-sm text-gray-300">
                     {links.map((link) => <NavLink key={link.to} to={link.to} className={({isActive}) => isActive ? activeLink : nonActiveLink}>{link.name}</NavLink>)}
                 </div>
+            </div>
+
+        {/* mobile nav */}
+            <div className="flex md:hidden items-center gap-4">
+                <button
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className='text-blue-400 text-xl cursor-pointer'
+                    title='Menu'
+                >
+                    {isMenuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+                
             </div>
         </div>
     </nav>
