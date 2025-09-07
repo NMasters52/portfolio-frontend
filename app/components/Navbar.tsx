@@ -41,9 +41,21 @@ const Navbar = () => {
                 >
                     {isMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
-                
             </div>
         </div>
+
+            {isMenuOpen && (
+                <div className="md:hidden px-6 py-4 space-x-4 text-center bg-gray-800 border-t border-gray-700">
+                        {links.map((link) =>   <NavLink 
+                                                key={link.to} 
+                                                to={link.to} 
+                                                className={({isActive}) => isActive ? activeLink : nonActiveLink}
+                                                onClick={() => setIsMenuOpen(false)}
+                                            >
+                                                {link.name}
+                                            </NavLink>)}
+                </div>
+            )}
     </nav>
   )
 }
