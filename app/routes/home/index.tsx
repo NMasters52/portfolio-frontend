@@ -10,8 +10,8 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <section>
-      <Hero />
-    </section>
+    <>
+      <p>Home Page</p>
+    </>
   );
 }
