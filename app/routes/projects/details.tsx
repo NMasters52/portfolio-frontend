@@ -14,7 +14,10 @@ export function HydrateFallback() {
   return <div>Loading...</div>;
 }
 
-const details = () => {
+const details = ( {loaderData}: Route.ComponentProps ) => {
+  const project = loaderData;
+  
+
   return (
     <div>Project Details</div>
   )

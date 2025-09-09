@@ -12,7 +12,6 @@ export async function loader( {request}: Route.LoaderArgs ): Promise<{projects: 
 const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
 
   const { projects } = loaderData as {projects: Project[]};
-  console.log(projects);
 
   return (
     <section className="text-3xl font-bold text-white mb-8">
