@@ -38,6 +38,23 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
   return (
     <section className="text-3xl font-bold text-white mb-8">
         <h2 className="mb-5 font-bold text-3xl">Projects 🚀</h2>
+
+        <div className="flex flex-wrap gap-2 mb-8">
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => {
+                setSelectedCategory(category);
+                setCurrentPage(1);
+              }}
+              className={`px-3 py-1 rounded text-sm cursor-pointer ${selectedCategory === category ? 
+                "bg-blue-600 text-white" : "bg-gray-700 text-gray-200"}`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid gap-6 sm:grid-cols-2">
           {projectsToRender.map((project) => (
             <ProjectCard key={project.id} project={project}/>
