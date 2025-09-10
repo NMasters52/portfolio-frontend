@@ -1,7 +1,10 @@
 import { useState } from "react";
-import ProjectCard from "~/components/ProjectCard";
+//types
 import type { Route } from "./+types/index"
 import type { Project } from "~/types"
+//components 
+import ProjectCard from "~/components/ProjectCard";
+import Pagination from "~/components/Pagination";
 
 
 export async function loader( {request}: Route.LoaderArgs ): Promise<{projects: Project[]}> {
@@ -15,7 +18,7 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
 
   const { projects } = loaderData;
 
-  //pagination
+  //pagination logic and state
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerAPage = 2;
 
@@ -25,24 +28,6 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
 
   const projectsToRender = projects.slice(indexOfFirst, indexOfLast);
 
-  const renderPagination = Array.from({length: totalPages}, (_, idx) => (
-    <button
-      key={idx + 1}
-      onClick={() => setCurrentPage(idx + 1)}
-      className={`px-3 py-1 cursor-pointer rounded ${
-            currentPage === idx + 1
-              ? 'bg-blue-600 text-white'
-              : 'bg-gray-700 text-gray-200'
-          }`}
-    >
-      {idx+1}
-    </button>
-  ))
-
-
-  
-
-
   return (
     <section className="text-3xl font-bold text-white mb-8">
         <div className="grid gap-6 sm:grid-cols-2">
@@ -50,9 +35,13 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
             <ProjectCard key={project.id} project={project}/>
           ))}
         </div>
-        <div className='flex justify-center gap-2 mt-8'>
-          {totalPages > 0 && renderPagination}
-        </div>
+        
+          <Pagination 
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+          />
+
     </section>
   )
 }
