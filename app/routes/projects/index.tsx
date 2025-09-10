@@ -15,21 +15,29 @@ export async function loader( {request}: Route.LoaderArgs ): Promise<{projects: 
 }
 
 const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
+  
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  //pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerAPage = 10;
 
+  //grab data from loader
   const { projects } = loaderData;
 
-  //pagination logic and state
-  const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerAPage = 2;
+  //filtered projects by category
+  const categories = ['All', ...new Set(projects.map(project => project.category))]
+  const filteredProjects = selectedCategory === 'All' ? projects : projects.filter(project => project.category === selectedCategory)
 
-  const totalPages = Math.ceil(projects.length) / projectsPerAPage;
+  //pagination logic
+  const totalPages = Math.ceil(filteredProjects.length) / projectsPerAPage;
   const indexOfLast = currentPage * projectsPerAPage;
   const indexOfFirst = indexOfLast - projectsPerAPage;
 
-  const projectsToRender = projects.slice(indexOfFirst, indexOfLast);
+  const projectsToRender = filteredProjects.slice(indexOfFirst, indexOfLast);
 
   return (
     <section className="text-3xl font-bold text-white mb-8">
+        <h2 className="mb-5 font-bold text-3xl">Projects 🚀</h2>
         <div className="grid gap-6 sm:grid-cols-2">
           {projectsToRender.map((project) => (
             <ProjectCard key={project.id} project={project}/>
