@@ -5,6 +5,8 @@ import type { Project } from "~/types"
 //components 
 import ProjectCard from "~/components/ProjectCard";
 import Pagination from "~/components/Pagination";
+//framer-motion
+import { AnimatePresence, motion } from 'framer-motion';
 
 
 export async function loader( {request}: Route.LoaderArgs ): Promise<{projects: Project[]}> {
@@ -55,11 +57,16 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
           ))}
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {projectsToRender.map((project) => (
-            <ProjectCard key={project.id} project={project}/>
-          ))}
-        </div>
+        <AnimatePresence mode='wait'>
+          <motion.div layout className="grid gap-6 sm:grid-cols-2">
+            {projectsToRender.map((project) => (
+              <motion.div key={project.id} layout>
+                <ProjectCard project={project}/>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+        
         
           <Pagination 
             totalPages={totalPages}
