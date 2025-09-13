@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { Route } from "./+types"
 import type { PostMeta } from "~/types";
 //components
+import PostsFilter from "~/components/PostsFilter";
 import PostCard from "~/components/PostCard";
 import Pagination from "~/components/Pagination";
 
@@ -23,20 +24,42 @@ export async function loader({request}: Route.LoaderArgs):Promise<{posts: PostMe
 }
 
 const BlogPage = ({loaderData}: Route.ComponentProps) => {
-
+  //pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10;
+  const postsPerPage = 2;
+  //posts data
   const {posts} = loaderData;
+  //filtering state
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const totalPages = Math.ceil(posts.length/postsPerPage);
+  //search query filtering
+  const filteredPosts = posts.filter((post) => {
+    const query = searchQuery.toLocaleLowerCase();
+    const title = post.title.toLowerCase();
+    const excerpt = post.excerpt.toLowerCase();
+    return title.includes(query) || excerpt.includes(query);
+  })
+
+  //pagination logic
+  const totalPages = Math.ceil(filteredPosts.length/postsPerPage);
   const lastIndex = postsPerPage * currentPage;
   const firstIndex = lastIndex - postsPerPage;
+  const currentPosts = filteredPosts.slice(firstIndex, lastIndex);
 
-  const currentPosts = posts.slice(firstIndex, lastIndex);
+  
 
   return (
     <div className='mx-auto max-w-3xl mt-10 px-6 py-6 bg-gray-900'>
         <h2 className='text-3xl text-white font-bold mb-8'>📝 Blog</h2>
+
+        <PostsFilter 
+          searchQuery={searchQuery} 
+          onQueryChange={(query) => {
+            setSearchQuery(query);
+            setCurrentPage(1);
+          }} 
+        />
+
         {currentPosts.map((post) => (
          <PostCard key={post.slug} post={post} />
         ))}
