@@ -60,9 +60,13 @@ const BlogPage = ({loaderData}: Route.ComponentProps) => {
           }} 
         />
 
-        {currentPosts.map((post) => (
-         <PostCard key={post.slug} post={post} />
-        ))}
+        <div className='space-y-8'>
+          {currentPosts.length === 0 
+            ? (<p>No posts found...</p>)
+            : (currentPosts.map((post) => (<PostCard key={post.slug} post={post} />)))
+          }
+        </div>
+        
 
         <Pagination
           currentPage={currentPage}
