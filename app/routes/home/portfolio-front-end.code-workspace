@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "portfolio",
+			"path": "../../.."
+		},
+		{
+			"name": "data",
+			"path": "../../../../../../../Downloads/lesson-resources/data"
+		}
+	],
+	"settings": {}
+}
