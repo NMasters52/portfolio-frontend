@@ -1,7 +1,7 @@
 import { useState } from "react";
 //types
 import type { Route } from "./+types/index";
-import type { Project } from "~/types";
+import type { Project, StrapiProject, StrapiResponse } from "~/types";
 //components
 import ProjectCard from "~/components/ProjectCard";
 import Pagination from "~/components/Pagination";
@@ -14,7 +14,7 @@ export async function loader({
   const res = await fetch(
     `${import.meta.env.VITE_API_URL}/projects?populate=*`
   );
-  const json = await res.json();
+  const json: StrapiResponse<StrapiProject> = await res.json();
 
   const projects: Project[] = json.data.map((item: any) => {
     const imageUrl =
