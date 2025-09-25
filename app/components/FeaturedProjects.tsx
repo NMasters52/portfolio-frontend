@@ -1,28 +1,27 @@
-import type { Project } from "~/types"
+import type { Project } from "~/types";
 import ProjectCard from "./ProjectCard";
 
 type FeaturedProjectsProps = {
-    projects: Project[];
-    count: number;
-}
+  projects: Project[];
+  count: number;
+};
 
-const FeaturedProjects = ({projects, count = 4}: FeaturedProjectsProps) => {
-
-    if(projects.length === 0) return null;
-
-    const filteredProjects = projects.filter((project) => project.featured).slice(0, count);
+const FeaturedProjects = ({ projects, count = 4 }: FeaturedProjectsProps) => {
+  if (projects.length === 0) return null;
 
   return (
     <section>
-        <h2 className="font-bold text-2xl mb-6 text-gray-200">⭐ Featured Projects</h2>
+      <h2 className="font-bold text-2xl mb-6 text-gray-200">
+        ⭐ Featured Projects
+      </h2>
 
-        <div className='grid gap-6 sm:grid-cols-2'>
-            {filteredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-            ))}
-        </div>
+      <div className="grid gap-6 sm:grid-cols-2">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default FeaturedProjects
+export default FeaturedProjects;
