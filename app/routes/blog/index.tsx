@@ -1,7 +1,7 @@
 import { useState } from "react";
 //types
 import type { Route } from "./+types";
-import type { PostMeta, StrapiResponse, StrapiPost } from "~/types";
+import type { Post, StrapiResponse, StrapiPost } from "~/types";
 //components
 import PostsFilter from "~/components/PostsFilter";
 import PostCard from "~/components/PostCard";
@@ -10,7 +10,7 @@ import { SlGraduation } from "react-icons/sl";
 
 export async function loader({
   request,
-}: Route.LoaderArgs): Promise<{ posts: PostMeta[] }> {
+}: Route.LoaderArgs): Promise<{ posts: Post[] }> {
   const res = await fetch(
     `${import.meta.env.VITE_API_URL}/posts?populate=image&sort=date:desc`
   );
