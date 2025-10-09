@@ -1,87 +1,67 @@
-# Welcome to React Router!
+# Portfolio Website
 
-A modern, production-ready template for building full-stack React applications using React Router.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+Welcome to my webdevelopment frontend portfolio. Built with React Router v7 for seamless navigation, server-side rendering (SSR) for fast initial loads, and Strapi as a headless CMS for dynamic content management. The frontend and backend are decoupled for scalability, with smooth animations and optimized performance.
+
+Live Demo: [View it here!](https://portfolio-frontend-omega-indol.vercel.app)
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- Dynamic Content: Blog posts and project details loaded via Strapi CMS, with loaders for efficient data fetching and error handling (e.g., 404s for missing content).
 
-## Getting Started
+- Projects Section: Interactive filtering with Framer Motion animations for smooth transitions between categories (e.g., all, web, mobile).
 
-### Installation
+- Contact Form: Powered by Formspree.io for serverless form submissions, with client-side validation and success/error feedback.
 
-Install the dependencies:
+- SSR Optimization: Server-side rendering ensures fast first-page loads, SEO-friendly content, and hydration on the client.
 
-```bash
-npm install
-```
+- Responsive Design: Mobile-first layout built using Tailwind CSS.
 
-### Development
+- Media Handling: Project images stored and optimized on Cloudinary for quick loading and CDN delivery.
 
-Start the development server with HMR:
+## Tech Stack
 
-```bash
-npm run dev
-```
+- Frontend Framework: React with React Router v7 (SSR mode, loaders/actions for data management)
 
-Your application will be available at `http://localhost:5173`.
+- Styling: Tailwind CSS (with Typography plugin for markdown rendering)
 
-## Building for Production
+- Animations: Framer Motion (for project filtering and subtle UI transitions)
 
-Create a production build:
+- CMS/Backend: Strapi (headless CMS for blog posts and project data)
 
-```bash
-npm run build
-```
+- Forms: Formspree.io (serverless contact form handling)
 
-## Deployment
+- Images: Cloudinary (cloud storage and optimization for portfolio assets)
 
-### Docker Deployment
+- TypeScript: Full type safety for props, loaders, and API responses
 
-To build and run using Docker:
+- Other: React Markdown (for blog post rendering), React Icons (for UI elements)
 
-```bash
-docker build -t my-app .
+Architecture
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+## This project uses a decoupled architecture:
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+- Backend (Strapi): A separate repo handling content via REST APIs. Hosted on Render for easy scaling and environment variables (e.g., API keys).
 
-### DIY Deployment
+- Frontend: This repo fetches data from Strapi using Promise.all in loaders for parallel API calls. SSR is enabled via React Router's server-side capabilities, ensuring content is pre-rendered on the server.
 
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
+- Data Flow:
+	1. Loaders fetch Strapi data (e.g., projects, blog posts) during navigation/SSR.
 
-Make sure to deploy the output of `npm run build`
+	2. Actions handle form submissions (e.g., contact form via Formspree).
 
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
+	3. Errors (e.g., 404s) are thrown as Response objects for clean HTTP handling.
 
-## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+- Why Decoupled?: Allows independent scaling—update Strapi content without touching the frontend, and vice versa. Integrates well with headless tools like Cloudinary for media.
 
----
+### Repo Structure (Frontend):
 
-Built with ❤️ using React Router.
+
+	src/
+	├── app/          # React Router v7 routes (e.g., /projects, /blog)
+	├── components/   # Reusable UI (e.g., ProjectCard, ContactForm)
+	├── types/        # TypeScript definitions (e.g., Project, PostMeta)
+	├── posts/        # Markdown files for blog (imported dynamically)
+	└── utils/        # Helpers (e.g., date formatting)
