@@ -11,7 +11,7 @@ const Hero = () => {
             <Link to="/projects" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
                 View Projects
             </Link>
-            <Link to="/contact" className="border border-blue-500 text-blue-400 px-6 py-2 rounded hover:bg-blue-600 hover:text-white transition">
+            <Link to="/contact" className="border border-emerald-500 text-emerald-500 px-6 py-2 rounded hover:bg-emerald-500 hover:text-white transition">
                 Contact Me
             </Link>
         </div>

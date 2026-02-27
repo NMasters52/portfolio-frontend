@@ -24,7 +24,7 @@ const LatestPosts = ({ posts, limit = 3 }: LatestPostsProps) => {
             to={`/blog/${post.slug}`}
             className="block p-4 border border-gray-700 rounded-lg bg-gray-800 hover:shadow-md transition"
           >
-            <h3 className="text-lg font-semibold text-blue-400 mb-1">
+            <h3 className="text-lg font-semibold text-emerald-500 mb-1">
               {post.title}
             </h3>
             <p className="text-sm text-gray-300">{post.excerpt}</p>
