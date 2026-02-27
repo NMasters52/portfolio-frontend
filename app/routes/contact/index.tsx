@@ -47,7 +47,7 @@ const ContactPage = () => {
         <div>
           <label
             htmlFor="name"
-            className="block tetx-sm font-medium text-gray-300"
+            className="block text-sm font-medium text-gray-300"
           >
             Full Name
           </label>
@@ -61,7 +61,7 @@ const ContactPage = () => {
         <div>
           <label
             htmlFor="email"
-            className="block tetx-sm font-medium text-gray-300"
+            className="block text-sm font-medium text-gray-300"
           >
             Email
           </label>
@@ -76,7 +76,7 @@ const ContactPage = () => {
         <div>
           <label
             htmlFor="subject"
-            className="block tetx-sm font-medium text-gray-300"
+            className="block text-sm font-medium text-gray-300"
           >
             Subject
           </label>
@@ -91,7 +91,7 @@ const ContactPage = () => {
         <div>
           <label
             htmlFor="message"
-            className="block tetx-sm font-medium text-gray-300"
+            className="block text-sm font-medium text-gray-300"
           >
             Message
           </label>

@@ -3,7 +3,7 @@ import { NavLink } from "react-router"
 import { FaLaptopCode, FaTimes, FaBars } from 'react-icons/fa';
 
 const Navbar = () => {
-    
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const nonActiveLink = "transition hover:text-blue-400"
@@ -46,9 +46,9 @@ const Navbar = () => {
 
             {isMenuOpen && (
                 <div className="md:hidden px-6 py-4 space-x-4 text-center bg-gray-800 border-t border-gray-700">
-                        {links.map((link) =>   <NavLink 
-                                                key={link.to} 
-                                                to={link.to} 
+                        {links.map((link) =>   <NavLink
+                                                key={link.to}
+                                                to={link.to}
                                                 className={({isActive}) => isActive ? activeLink : nonActiveLink}
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
