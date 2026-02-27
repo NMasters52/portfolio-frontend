@@ -34,10 +34,10 @@ const Navbar = () => {
                     <a href="https://github.com/NMasters52" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition" title="GitHub">
                         <FaGithub className="text-xl"/>
                     </a>
-                    <a href="https://linkedin.com/in/nick-masters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" title="LinkedIn">
+                    <a href="https://linkedin.com/in/nicholas-masters-aa2303323" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" title="LinkedIn">
                         <FaLinkedin className="text-xl"/>
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-400 transition" title="Instagram">
+                    <a href="https://www.instagram.com/masters.dg" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-400 transition" title="Instagram">
                         <FaInstagram className="text-xl"/>
                     </a>
                 </div>
@@ -69,10 +69,10 @@ const Navbar = () => {
                             <a href="https://github.com/NMasters52" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition" title="GitHub">
                                 <FaGithub className="text-xl"/>
                             </a>
-                            <a href="https://linkedin.com/in/nick-masters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" title="LinkedIn">
+                            <a href="https://linkedin.com/in/nicholas-masters-aa2303323" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" title="LinkedIn">
                                 <FaLinkedin className="text-xl"/>
                             </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-400 transition" title="Instagram">
+                            <a href="https://www.instagram.com/masters.dg" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-400 transition" title="Instagram">
                                 <FaInstagram className="text-xl"/>
                             </a>
                         </div>
