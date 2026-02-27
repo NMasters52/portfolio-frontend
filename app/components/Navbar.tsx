@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router"
-import { FaLaptopCode, FaTimes, FaBars } from 'react-icons/fa';
+import { FaLaptopCode, FaTimes, FaBars, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Navbar = () => {
 
@@ -30,6 +30,17 @@ const Navbar = () => {
                 <div className="space-x-4 text-sm text-gray-300">
                     {links.map((link) => <NavLink key={link.to} to={link.to} className={({isActive}) => isActive ? activeLink : nonActiveLink}>{link.name}</NavLink>)}
                 </div>
+                <div className="flex items-center gap-4 border-l border-gray-700 pl-6">
+                    <a href="https://github.com/NMasters52" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition" title="GitHub">
+                        <FaGithub className="text-xl"/>
+                    </a>
+                    <a href="https://linkedin.com/in/nick-masters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" title="LinkedIn">
+                        <FaLinkedin className="text-xl"/>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-400 transition" title="Instagram">
+                        <FaInstagram className="text-xl"/>
+                    </a>
+                </div>
             </div>
 
         {/* mobile nav */}
@@ -54,6 +65,17 @@ const Navbar = () => {
                                             >
                                                 {link.name}
                                             </NavLink>)}
+                        <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-gray-700">
+                            <a href="https://github.com/NMasters52" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition" title="GitHub">
+                                <FaGithub className="text-xl"/>
+                            </a>
+                            <a href="https://linkedin.com/in/nick-masters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" title="LinkedIn">
+                                <FaLinkedin className="text-xl"/>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-400 transition" title="Instagram">
+                                <FaInstagram className="text-xl"/>
+                            </a>
+                        </div>
                 </div>
             )}
     </nav>
