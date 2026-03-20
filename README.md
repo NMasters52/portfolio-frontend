@@ -37,7 +37,6 @@ Live Demo: [View it here!](https://portfolio-frontend-omega-indol.vercel.app)
 
 - Other: React Markdown (for blog post rendering), React Icons (for UI elements)
 
-Architecture
 
 
 ## This project uses a decoupled architecture:
