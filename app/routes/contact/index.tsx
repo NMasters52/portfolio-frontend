@@ -1,6 +1,10 @@
 import type { Route } from "./+types";
 import { Form } from "react-router";
 
+export function meta({}: Route.MetaArgs) {
+  return [{ title: "Contact | Nick Masters" }];
+}
+
 // export async function action({request}: Route.ActionArgs) {
 //   const formData = await request.formData();
 //   const name = formData.get('name') as string;

@@ -14,8 +14,8 @@ import LatestPosts from "~/components/LatestPosts";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Portfilio | Home" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Home | Nick Masters" },
+    { name: "description", content: "Full-stack developer portfolio" },
   ];
 }
 
@@ -26,7 +26,7 @@ export async function loader({
 
   const [projRes, postRes] = await Promise.all([
     fetch(
-      `${import.meta.env.VITE_API_URL}/projects?filters[featured][$eq]=true&populate=*`
+      `${import.meta.env.VITE_API_URL}/projects?filters[featured][$eq]=true&populate=*`,
     ),
     fetch(`${import.meta.env.VITE_API_URL}/posts?sort[0]=date:desc&populate=*`),
   ]);

@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 //types
 import type { Route } from "./+types";
 import type { Post, StrapiResponse, StrapiPost } from "~/types";
@@ -8,11 +9,15 @@ import PostCard from "~/components/PostCard";
 import Pagination from "~/components/Pagination";
 import { SlGraduation } from "react-icons/sl";
 
+export function meta({}: Route.MetaArgs) {
+  return [{ title: "Blog | Nick Masters" }];
+}
+
 export async function loader({
   request,
 }: Route.LoaderArgs): Promise<{ posts: Post[] }> {
   const res = await fetch(
-    `${import.meta.env.VITE_API_URL}/posts?populate=image&sort=date:desc`
+    `${import.meta.env.VITE_API_URL}/posts?populate=image&sort=date:desc`,
   );
 
   if (!res.ok) throw new Error("Failed to fetch data");

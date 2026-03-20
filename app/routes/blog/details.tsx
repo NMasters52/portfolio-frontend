@@ -3,11 +3,15 @@ import type { Post, StrapiResponse, StrapiPost } from "~/types";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router";
 
+export function meta({ data }: Route.MetaArgs) {
+  return [{ title: `${data?.post?.title ?? "Post"} | Nick Masters` }];
+}
+
 export async function loader({ request, params }: Route.LoaderArgs) {
   const { slug } = params;
 
   const res = await fetch(
-    `${import.meta.env.VITE_API_URL}/posts?filters[slug][$eq]=${slug}&populate=image`
+    `${import.meta.env.VITE_API_URL}/posts?filters[slug][$eq]=${slug}&populate=image`,
   );
 
   if (!res.ok) throw new Error("Failed to fetch data");

@@ -26,8 +26,8 @@ export const links: Route.LinksFunction = () => [
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Nick Masters | Portfolio" },
+    { name: "description", content: "Full-stack developer portfolio" },
   ];
 }
 
@@ -42,9 +42,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Navbar />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <ScrollRestoration />
         <Scripts />
       </body>

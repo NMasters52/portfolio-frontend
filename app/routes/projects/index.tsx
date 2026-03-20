@@ -8,11 +8,15 @@ import Pagination from "~/components/Pagination";
 //framer-motion
 import { AnimatePresence, motion } from "framer-motion";
 
+export function meta({}: Route.MetaArgs) {
+  return [{ title: "Projects | Nick Masters" }];
+}
+
 export async function loader({
   request,
 }: Route.LoaderArgs): Promise<{ projects: Project[] }> {
   const res = await fetch(
-    `${import.meta.env.VITE_API_URL}/projects?populate=*`
+    `${import.meta.env.VITE_API_URL}/projects?populate=*`,
   );
   const json: StrapiResponse<StrapiProject> = await res.json();
 
