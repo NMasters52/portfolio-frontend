@@ -3,7 +3,7 @@
 
 Welcome to my webdevelopment frontend portfolio. Built with React Router v7 for seamless navigation, server-side rendering (SSR) for fast initial loads, and Strapi as a headless CMS for dynamic content management. The frontend and backend are decoupled for scalability, with smooth animations and optimized performance.
 
-Live Demo: [View it here!](https://portfolio-frontend-omega-indol.vercel.app)
+Live Demo: [View it here!](https://portfolio-frontend-omega-indol.vercel.app) (The load time may be slow... it is a SSR app. If the server is cold it may take a second)
 
 ## Features
 
